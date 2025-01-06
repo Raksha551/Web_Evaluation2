@@ -14,7 +14,7 @@ namespace Evaluation2_Screens
 {
     public partial class Screen : System.Web.UI.Page
     {
-        
+
         //private string ConnectionString => WebConfigurationManager.ConnectionStrings["DBCS"].ConnectionString;
         DataBaseHelper dbHelper = new DataBaseHelper();
         DataTable dt = null;
@@ -27,11 +27,11 @@ namespace Evaluation2_Screens
                     PopulateDownCode();
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Logger.WriteErrorLog($"Error in Page_Load: {ex.Message}");
             }
-           
+
         }
         public void PopulateDownCode()
         {
@@ -48,7 +48,7 @@ namespace Evaluation2_Screens
             catch (Exception ex)
             {
                 Logger.WriteErrorLog($"Error in PopulateDownCode : {ex.Message}");
-            }        
+            }
         }
         protected void ViewButton_Click(object sender, EventArgs e)
         {
@@ -56,7 +56,7 @@ namespace Evaluation2_Screens
             {
                 string fromDate = txtFromDate.Text;
                 string toDate = txtToDate.Text;
-                string downId = Request.Form[lbxdowncode.UniqueID]; 
+                string downId = Request.Form[lbxdowncode.UniqueID];
                 string[] downIds = downId?.Split(',') ?? new string[] { };
                 string formattedFromDate = Helper.ConvertToCustomDateFormat(fromDate);
                 string formattedToDate = Helper.ConvertToCustomDateFormat(toDate);
@@ -70,8 +70,8 @@ namespace Evaluation2_Screens
                     {
                         for (int i = 0; i < dt.Rows.Count; i++)
                         {
-                            
-                            DataBaseHelper.ColumnNames_111 data = new   DataBaseHelper.ColumnNames_111();                                                
+
+                            DataBaseHelper.ColumnNames_111 data = new DataBaseHelper.ColumnNames_111();
                             data.SerialNumber = dt.Rows[i]["SerialNumber"].ToString();
                             data.Operator = dt.Rows[i]["Operator"].ToString();
                             data.StartTime = dt.Rows[i]["StartTime"].ToString();
@@ -86,18 +86,19 @@ namespace Evaluation2_Screens
                              .Select(g => new
                              {
                                  downID = g.Key,
-                                 data = g.CopyToDataTable() 
+                                 data = g.CopyToDataTable()
                              }).ToList();
-                     
-                        listview3.DataSource = groupedData; 
+
+                        listview3.DataSource = groupedData;
                         listview3.DataBind();
-                   
+
                     }
-                    else
-                    {
-                        listview3.DataSource = null; 
-                        listview3.DataBind();
-                    }
+
+                }
+                else
+                {
+                    listview3.DataSource = null;
+                    listview3.DataBind();
                 }
             }
             catch (Exception ex)
@@ -153,9 +154,9 @@ namespace Evaluation2_Screens
                 Logger.WriteErrorLog($"Error in FetchReportData: {ex.Message}");
             }
             return dt;
-              
+
         }
-       
+
     }
 }
 

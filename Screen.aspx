@@ -333,7 +333,7 @@
 
         .empty {
             margin-left: 300px;
-            margin-top: 80px;
+            margin-top: 180px;
             border: 1px solid white;
             padding: 5px;
             color:#ddd;
@@ -524,7 +524,7 @@
                   <tr>
                       <td class="leftlabel">
                           <strong>DownID: </strong>
-                          <asp:Label ID="lbldownid" runat="server" Text='<%# Eval("downID") %>' ></asp:Label>
+                          <asp:Label ID="lbldownid" runat="server" Text='<%# Eval("downID") != DBNull.Value ? Eval("downID") : "Data Not Available" %>' ></asp:Label>
                       </td>
                       <td>
                           <asp:ListView runat="server" ItemPlaceholderID="itemPlaceholder" DataSource='<%# Eval("data") %>' >
@@ -564,7 +564,6 @@
                                       <td runat="server" class="downdata">
                                           <asp:Label runat="server" Text='<%# Eval("downtime") %>'></asp:Label>
                                       </td>
-
                                   </tr>
                               </ItemTemplate>
                           </asp:ListView>
@@ -575,7 +574,7 @@
           <EmptyDataTemplate>
               <table class="empty">
                   <tr>
-                      <td style="font-size: 30px; color: white; position:fixed; padding: 10px;">Sorry!!! there is no data available for given user input</td>
+                      <td style="font-size: 30px; color: white; border:2px solid #ddd; position:fixed; padding: 20px; ">Sorry!!! there is no data available for given input</td>
                   </tr>
               </table>
           </EmptyDataTemplate>
