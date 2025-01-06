@@ -60,12 +60,12 @@ namespace Evaluation2_Screens
         protected global::System.Web.UI.WebControls.Button viewbtn;
 
         /// <summary>
-        /// listview1 control.
+        /// listview3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListView listview1;
+        protected global::System.Web.UI.WebControls.ListView listview3;
     }
 }

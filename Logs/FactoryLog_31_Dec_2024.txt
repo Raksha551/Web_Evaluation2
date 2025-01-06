@@ -1,0 +1,8 @@
+﻿2024-12-31 12:58:29:7124 : EXCEPTION - Error fetching data: Execution Timeout Expired.  The timeout period elapsed prior to completion of the operation or the server is not responding.
+2024-12-31 13:08:20:0055 : EXCEPTION - Error fetching data: Error converting data type nvarchar to datetime.
+2024-12-31 13:08:23:6736 : EXCEPTION - Error fetching data: Error converting data type nvarchar to datetime.
+2024-12-31 13:08:29:4750 : EXCEPTION - Error fetching data: Error converting data type nvarchar to datetime.
+2024-12-31 13:09:29:0962 : EXCEPTION - Error fetching data: Error converting data type nvarchar to datetime.
+2024-12-31 13:09:32:6567 : EXCEPTION - Error fetching data: Error converting data type nvarchar to datetime.
+2024-12-31 13:09:33:0330 : EXCEPTION - Error fetching data: Error converting data type nvarchar to datetime.
+2024-12-31 13:09:33:3415 : EXCEPTION - Error fetching data: Error converting data type nvarchar to datetime.

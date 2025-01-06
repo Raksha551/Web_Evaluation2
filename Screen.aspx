@@ -5,20 +5,67 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js" integrity="sha512-jGsMH83oKe9asCpkOVkBnUrDDTp8wl+adkB2D+//JtlxO4SrLoJdhbOysIFQJloQFD+C4Fl1rMsQZF76JjV0eQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <%--  <link href="lib/bootstrap-version/bootstrap.min.css" rel="stylesheet" />--%>
+    <link href="lib/bootstrap-version/bootstrap-3.3.7/bootstrap-3.3.7/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+    <script src="lib/bootstrap-version/bootstrap.min.js"></script>
+ 
+
+    <link href="lib/bootstrap-multiselect/css/bootstrap-multiselect.min.css" rel="stylesheet" />
+    <script src="lib/bootstrap-multiselect/js/bootstrap-multiselect.min.js"></script>
+ 
+ 
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.15.1/moment.min.js" integrity="sha512-1V1LfkdFb5dlSJjEImkfBwiJhuqBLoWjWWYKI3kMvjOFm3y43yzHhyp1Swz31R7k2GOfVFKFA+7UDZkTdTBIqA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.43/css/bootstrap-datetimepicker.min.css" integrity="sha512-cSe3D7ePd2MI6J8MDnEAi52LVHpaSadXU+ML3bIOZepIdDLppMDBrkKtsgLe7WFmBji+HgGeY8o8ZFe0YWbfNQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.43/css/bootstrap-datetimepicker-standalone.min.css" integrity="sha512-7hJUjGwcXDB2zjYRCbqKpea+eoThf9VLF5x17Yp5AY7tGYgVAuPWyX+n917V5PYFVahk2bHC/ZPcSL2HpyJupQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.43/js/bootstrap-datetimepicker.min.js" integrity="sha512-JcceycVPblKG5oooLUNXGY7KhAvXxzppH+n7CFZMCb1Uj1hZzysaWaVsOukaZpb/qPL9zFGR66DDfTTxlVB5qw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    
+
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.15.1/moment.min.js" integrity="sha512-1V1LfkdFb5dlSJjEImkfBwiJhuqBLoWjWWYKI3kMvjOFm3y43yzHhyp1Swz31R7k2GOfVFKFA+7UDZkTdTBIqA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.43/css/bootstrap-datetimepicker.min.css" integrity="sha512-cSe3D7ePd2MI6J8MDnEAi52LVHpaSadXU+ML3bIOZepIdDLppMDBrkKtsgLe7WFmBji+HgGeY8o8ZFe0YWbfNQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.43/css/bootstrap-datetimepicker-standalone.min.css" integrity="sha512-7hJUjGwcXDB2zjYRCbqKpea+eoThf9VLF5x17Yp5AY7tGYgVAuPWyX+n917V5PYFVahk2bHC/ZPcSL2HpyJupQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.43/js/bootstrap-datetimepicker.min.js" integrity="sha512-JcceycVPblKG5oooLUNXGY7KhAvXxzppH+n7CFZMCb1Uj1hZzysaWaVsOukaZpb/qPL9zFGR66DDfTTxlVB5qw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+     <script>
+         $(document).ready(function () {
+             // Enable multi-select dropdowns
+             $('#<%= lbxdowncode.ClientID %>').multiselect({
+                 includeSelectAllOption: true,
+                 buttonWidth: '160px',
+             });
+
+             $("#txtFromDate").datetimepicker({
+                 format: 'DD-MM-YYYY HH:mm:ss',
+                 locale: 'en-US',
+
+             });
+             $('[id$=txtToDate]').datetimepicker({
+                 format: 'DD-MM-YYYY HH:mm:ss',
+                 locale: 'en-US',
+             });
+
+         });
+     </script>
+
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            text-align: center;
             background-color: #0a0c3f !important;
+          
         }
 
 
         .container {
             margin-top: 60px;
+             border-bottom: 1px solid #ddd;
+             width:100%;
         }
-
 
         .head-container {
             display: flex;
@@ -115,6 +162,7 @@
             display: flex;
             flex-direction: column;
             z-index: -1;
+
         }
 
         .innersidebar {
@@ -143,6 +191,7 @@
             display: flex;
             flex-direction: row;
             padding: 14px;
+           
             color: white;
             border: 1px solid white;
         }
@@ -150,7 +199,7 @@
         .innersidebar-list {
             display: flex;
             flex-direction: row;
-            padding: 5px;
+            padding: 8px;
             padding-left: 40px;
             color: white;
             border: 1px solid white;
@@ -217,63 +266,55 @@
         }
 
         .filtertable {
-            width: 100%; /* Adjust as needed */
+           /* width: 100%; *//* Adjust as needed */
             border-collapse: collapse;
-            margin-top: 200px;
+           /* margin-top: 200px;*/
             margin: 40px 18%;
             position: relative;
             margin-left: 16%;
-            width: 50%;
-            padding: 20px;
+          width:120%;
+           padding-bottom: 10px;
+    padding-top: 50px;
+   
+    padding-left: 20px;
             border: 1px solid #DADBDD;
             table-layout: fixed;
-            color: #DADBDD;
+           color: black;
             display: inline !important;
         }
 
-        table th, table td {
+        .filtertable > th{
+             color: #DADBDD;
+            
+        }
+         .filtertable > tbody > tr > td{
+             padding-right: 60px;
+         }
+
+       .filtertable > th, .filtertable > td {
             padding: 20px;
             text-align: left;
             display: inline !important;
         }
 
 
-        table td {
+        .filtertable > td {
             height: 50px;
             width: 180px;
             padding: 20px;
         }
 
         .filters {
-            margin-top: 25px;
+            margin-top: 35px;
         }
-        /* Style for the table */
-        /* Style for the ListView container */
-        /* Style for the ListView container */
-     
-           
-
-            /* Alternate row color styles */
-            .listviewdata tr:nth-child(even) {
-                background-color: white; /* Light gray for even rows */
-            }
-.listviewdata tr:nth-child(odd) {
-                background-color: darkslategray; /* White for odd rows */
-            }
-
-            /* Hover effect for rows */
-            .listview .listviewtable tr:hover {
-                background-color: #ddd; /* Light gray when hovering over any row */
-            }
-
-        /* Optional: Remove border around ListView container */
-        .listview {
-            margin-top: 80px;
+         .righttable  tr:nth-child(even) {
+            background-color: white;
+            color: black;
         }
 
-        .body {
-            display: inline !important;
-            gap: 10px;
+
+        .righttable  tr:nth-child(odd) {
+            background-color: #D3D3D3 ; 
         }
 
         .leftbox {
@@ -289,60 +330,92 @@
             word-wrap: break-word;
             background-color: white;
         }
-        .empty{
+
+        .empty {
             margin-left: 300px;
-            margin-top:80px;
-            border:1px solid white;
-            padding:5px;
+            margin-top: 80px;
+            border: 1px solid white;
+            padding: 5px;
+            color:#ddd;
         }
-        .listviewdata{
-              width: 72%; /* Adjust as needed */
-  border-collapse: collapse;
-  margin-top: 200px;
-  margin: 40px 18%;
-  position: relative;
-  margin-left: 16%;
 
+        .tablediv {
+           
+            margin-top: 70px;
+            color: black;
+            border-collapse: collapse;
+        }
 
-   border: 1px solid white;
-  table-layout: fixed;
-  color: #DADBDD;
-  
-        }
-        .listviewdata td{
-       margin-left:0px;
-          height:2px;
-           text-align:center;
-     
+            .tablediv > tbody > tr > td {
+                text-align: left;
 
+            }
+
+        .leftlabel {
+            color:black;
+            font-weight: bold;
+            text-align: center;
+             font-size: 20px;
+ background-color: #D3D3D3;
+ border:1px solid black;
+ width:12%;
         }
-      .listviewdata tbody tr{
-          width:400%;
-       
+
+        .righttable  tr {
+            background-color: #f2f2f2;
+            text-align: left;
+            padding: 8px;
+            font-weight: bold;
+            line-height: 3;
+            border: 1px solid black;
         }
+
+        .righttable  td, .righttable  th {
+            border:1px solid #ddd;
+            text-align:center;
+            width:230px;
+        }
+
+        .righttable {
+            text-align: left;
+            padding: 8px;
+            line-height: 0px;
+            border: 1px solid red;
+            height: 20px;
+            border-collapse: collapse;
+            border: 1px solid black;         
+            margin-right: auto;
+        }      
+
+        .heading {
+    background-color: 	#004958 !important;
+            color:white;
+        }
+        .serialheading{
+            width:68px !important;
+        }
+        .serialdata{
+            width:68px !important;
+        }
+        .opheading{
+             
+        }
+        .startheading{
+            
+        }
+        .endheading{
+           
+        }
+        .downheading, .downdata{
+             width:80px !important;
+        }
+        .idheading{
+             
+        }
+      
+
     </style>
-    <script src="lib/jquery/jquery.min.js"></script>
-    <link href="lib/bootstrap.min.css" rel="stylesheet" />
-    <script src="lib/bootstrap.min.js"></script>
-
-
-
-    <link href="lib/bootstrap-multiselect/css/bootstrap-multiselect.min.css" rel="stylesheet" />
-    <script src="lib/bootstrap-multiselect/js/bootstrap-multiselect.min.js"></script>
-
-
-
-    <script>
-        $(document).ready(function () {
-            // Enable multi-select dropdowns
-            $('#<%= lbxdowncode.ClientID %>').multiselect({
-                includeSelectAllOption: true,
-                buttonWidth: '160px',
-            });
-
-
-        });
-    </script>
+   
 </head>
 <body>
     <form id="form1" runat="server">
@@ -362,10 +435,8 @@
                         <img src="./Images/profile-user.png" class="header-icon" id="h" alt="Home Icon" />
                         <img src="./Images/AmiTLogo.jpg" class="header-icon" id="rightlogo" alt="AmiT Loga" />
                     </div>
-                </div>                 
+                </div>
             </div>
-              <hr style="width: 300%; font-weight: bolder; margin-top: 0px; top: 0px; padding-top: 0px;" />
-         
         </div>
         <div class="sidebar">
             <div class="sidebar-list">
@@ -421,11 +492,11 @@
                 <tr>
                     <td>
                         <asp:Label runat="server" Text="From Date" CssClass="cellname"></asp:Label>
-                        <asp:TextBox runat="server" ID="txtFromDate" CssClass="celllength" TextMode="DateTimeLocal" Style="color: black"></asp:TextBox>
+                        <asp:TextBox runat="server" ID="txtFromDate" CssClass="celllength" placeholder="From Date"  Style="color: black"  AutoCompleteType="Disabled"></asp:TextBox>
                     </td>
                     <td>
                         <asp:Label runat="server" Text="To Date" CssClass="cellname"></asp:Label>
-                        <asp:TextBox runat="server" ID="txtToDate" CssClass="celllength" TextMode="DateTimeLocal" Style="color: black"></asp:TextBox>
+                        <asp:TextBox runat="server" ID="txtToDate" CssClass="celllength" placeholder="To Date"  Style="color: black"  AutoCompleteType="Disabled"></asp:TextBox>
                     </td>
                     <td class="list">
                         <asp:Label runat="server" Text="Down Code" CssClass="cellname"></asp:Label>
@@ -435,111 +506,137 @@
                         <asp:Button runat="server" ID="viewbtn" Text="View" OnClick="ViewButton_Click" />
                     </td>
                 </tr>
-
-
-
             </table>
-
         </div>
-       <%-- <div class="body">
-            <div class="leftbox">
-                <asp:ListView runat="server" class="lefttable" ID="listview2" ItemPlaceholderID="itemPlaceholder">
-                    <LayoutTemplate>
-                        <div>
-                            <asp:PlaceHolder runat="server" ID="itemPlaceholder"></asp:PlaceHolder>
-                        </div>
-                    </LayoutTemplate>
-                    <ItemTemplate>
-                        <div>
-                            <asp:Label runat="server" CssClass="leftdownid" Text='<%# Eval("downID") %>'></asp:Label><br />
-                            <asp:Label runat="server" CssClass="leftdownid" Text='<%# Eval("totalDowntime") %>'></asp:Label>
-                        </div>
-                    </ItemTemplate>
-                </asp:ListView>
-            </div>
-            <div class="listview">
-                <asp:ListView ID="listview1" runat="server" ItemPlaceholderID="itemPlaceholder">
-                    <LayoutTemplate>
-                        <table class="listviewtable">
-                            <thead>
-                                <tr>
-                                    <th>Sl. No.</th>
-                                    <th>Down Start Time</th>
-                                    <th>Down End Time</th>
-                                    <th>Machine ID</th>
-                                    <th>Operator</th>
-                                    <th>Downtime</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr runat="server" id="itemPlaceholder"></tr>
-                            </tbody>
 
-                        </table>
-                    </LayoutTemplate>
-                    <ItemTemplate>
-                        <tr>
-                            <td><%# Eval("SerialNumber") %></td>
-                            <td><%# Eval("StartTime") %></td>
-                            <td><%# Eval("EndTime") %></td>
-                            <td><%# Eval("MachineID") %></td>
-                            <td><%# Eval("Operator") %></td>
-                            <td><%# Eval("downtime") %></td>
-                        </tr>
-                    </ItemTemplate>
-                </asp:ListView>
-            </div>
+        <asp:ScriptManager runat="server"></asp:ScriptManager>
+        <asp:UpdatePanel runat="server">
+            <ContentTemplate>
+                  <div class="listviewdiv">
+      <asp:ListView runat="server" ID="listview3" ItemPlaceholderID="itemplaceholder">
+          <LayoutTemplate>
+              <div runat="server" style="margin-left:13%;">
+                  <asp:PlaceHolder ID="itemplaceholder" runat="server"></asp:PlaceHolder>
+              </div>
+          </LayoutTemplate>
+          <ItemTemplate>
+              <table style="width: 100%; margin:40px;" >
+                  <tr>
+                      <td class="leftlabel">
+                          <strong>DownID: </strong>
+                          <asp:Label ID="lbldownid" runat="server" Text='<%# Eval("downID") %>' ></asp:Label>
+                      </td>
+                      <td>
+                          <asp:ListView runat="server" ItemPlaceholderID="itemPlaceholder" DataSource='<%# Eval("data") %>' >
+                              <LayoutTemplate>
+                                  <table class="righttable">
+                                    
+                                          <tr class="heading">
+                                              <th class="serialheading">SerialNo</th>
+                                              <th class="startheading">StartTime</th>
+                                              <th class="endheading">EndTime</th>
+                                              <th class="idheading">MachineID</th>
+                                              <th class="opheading">Operator</th>
+                                              <th class="downheading">Downtime</th>
+                                          </tr>
+                                     
+                                      <tr id="itemPlaceholder" runat="server"></tr>
+                                  </table>
+                              </LayoutTemplate>
+                              <ItemTemplate>
+                                  <tr>
+                                      <td runat="server" class="serialdata">
+                                          <asp:Label runat="server" Text='<%# Eval("SerialNumber") %>'></asp:Label>
+                                      </td>
+                                      <td runat="server" class="startdata">
 
-        </div>--%>
-         <asp:ListView runat="server" ItemPlaceholderID="itemPlaceholder" ID="listview1">
-     <LayoutTemplate>
-          <table class="listviewdata">
-        <tr runat="server" ID="itemPlaceholder"></tr>
-               </table>
-     </LayoutTemplate>
-     <ItemTemplate>
-        
-             <tr>
-                 <td runat="server" rowspan='<%# Eval("RowSpan") %>' visible='<%# Eval("tdVisible") %>' class="downid">
-                     <asp:Label runat="server" Text='<%# Eval("downID") %>'></asp:Label>
-                 </td>
-                  <td runat="server">
-     <asp:Label runat="server" Text='<%# Eval("SerialNumber") %>'></asp:Label>
- </td>
-                 <td runat="server">
+                                          <asp:Label runat="server" Text='<%# Eval("StartTime") %>'></asp:Label>
+                                      </td>
+                                      <td runat="server" class="enddata">
+                                          <asp:Label runat="server" Text='<%# Eval("EndTime") %>'></asp:Label>
+                                      </td>
+                                      <td runat="server" class="iddata">
+                                          <asp:Label runat="server" Text='<%# Eval("MachineID") %>'></asp:Label>
+                                      </td>
+                                      <td runat="server" class="opdata" >
+                                          <asp:Label runat="server" Text='<%# Eval("Operator") %>'></asp:Label>
+                                      </td>
+                                      <td runat="server" class="downdata">
+                                          <asp:Label runat="server" Text='<%# Eval("downtime") %>'></asp:Label>
+                                      </td>
+
+                                  </tr>
+                              </ItemTemplate>
+                          </asp:ListView>
+                      </td>
+                  </tr>
+              </table>
+          </ItemTemplate>
+          <EmptyDataTemplate>
+              <table class="empty">
+                  <tr>
+                      <td style="font-size: 30px; color: white; position:fixed; padding: 10px;">Sorry!!! there is no data available for given user input</td>
+                  </tr>
+              </table>
+          </EmptyDataTemplate>
+      </asp:ListView>
+  </div>
+
+            </ContentTemplate>
+        </asp:UpdatePanel>
+      
+        <%-- <asp:ListView runat="server" ItemPlaceholderID="itemPlaceholder" ID="listview1">
+            <LayoutTemplate>
+                <table class="listviewdata">
+                    <tr runat="server">
+                        <td runat="server"  id="itemPlaceholder"></td>
+                    </tr>
                     
-                     <asp:Label runat="server" Text='<%# Eval("StartTime") %>'></asp:Label>
-                 </td>
-                 <td runat="server">
-                     <asp:Label runat="server" Text='<%# Eval("EndTime") %>'></asp:Label>
-                 </td>
-                 <td runat="server">
-                     <asp:Label runat="server" Text='<%# Eval("MachineID") %>'></asp:Label>
-                 </td>
-                 <td runat="server">
-                     <asp:Label runat="server" Text='<%# Eval("Operator") %>'></asp:Label>
-                 </td>
-                 <td runat="server">
-                     <asp:Label runat="server" Text='<%# Eval("downTime") %>'></asp:Label>
-                 </td>
+                </table>
+            </LayoutTemplate>
+            <ItemTemplate>
 
-             </tr>
-        
-     </ItemTemplate>
-          
-     <EmptyDataTemplate>
-         <table class="empty">
-             <tr>
-                 <td style="font-size: 30px; color: white; padding: 10px;">Sorry!!! there is no data available for given user input</td>
-             </tr>
-         </table>
-     </EmptyDataTemplate>
- </asp:ListView>
+                <tr>
+                    <td runat="server" rowspan='<%# Eval("RowSpan") %>' visible='<%# Eval("tdVisible") %>' class="downid">
+                        <asp:Label runat="server" Text='<%# Eval("downID") %>'></asp:Label>
+                    </td>
+                    <td runat="server">
+                        <asp:Label runat="server" Text='<%# Eval("SerialNumber") %>'></asp:Label>
+                    </td>
+                    <td runat="server">
 
+                        <asp:Label runat="server" Text='<%# Eval("StartTime") %>'></asp:Label>
+                    </td>
+                    <td runat="server">
+                        <asp:Label runat="server" Text='<%# Eval("EndTime") %>'></asp:Label>
+                    </td>
+                    <td runat="server">
+                        <asp:Label runat="server" Text='<%# Eval("MachineID") %>'></asp:Label>
+                    </td>
+                    <td runat="server">
+                        <asp:Label runat="server" Text='<%# Eval("Operator") %>'></asp:Label>
+                    </td>
+                    <td runat="server">
+                        <asp:Label runat="server" Text='<%# Eval("downTime") %>'></asp:Label>
+                    </td>
 
+                </tr>
+
+            </ItemTemplate>
+
+            <EmptyDataTemplate>
+                <table class="empty">
+                    <tr>
+                        <td style="font-size: 30px; color: white; padding: 10px;">Sorry!!! there is no data available for given user input</td>
+                    </tr>
+                </table>
+                
+            </EmptyDataTemplate>
+        </asp:ListView>--%>
     </form>
-   
+
 </body>
 </html>
 <%--AMIT-LT97\SQLEXPRESS--%>
 
+.

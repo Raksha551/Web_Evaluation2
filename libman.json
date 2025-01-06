@@ -1,0 +1,16 @@
+{
+  "version": "3.0",
+  "defaultProvider": "cdnjs",
+  "libraries": [
+    {
+      "library": "bootstrap-datetimepicker@6.7.13",
+      "destination": "lib/bootstrap-datetimepicker/",
+      "files": [
+        "js/tempus-dominus.js",
+        "css/tempus-dominus.css",
+        "css/tempus-dominus.min.css",
+        "js/tempus-dominus.min.js"
+      ]
+    }
+  ]
+}
