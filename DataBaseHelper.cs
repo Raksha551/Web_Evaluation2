@@ -31,6 +31,7 @@ namespace Evaluation2_Screens
             connectionString = WebConfigurationManager.ConnectionStrings["DBCS"].ConnectionString;
         }
 
+        #region fetch DB Data
         public DataTable fetchDBdata(string fromDate, string toDate, string[] downids)
         {
             SqlConnection con = new SqlConnection(connectionString);
@@ -63,6 +64,9 @@ namespace Evaluation2_Screens
           
             return dt;
         }
+        #endregion
+
+        #region Populate downcode
         public static List<string> Populatedowncode()
         {
             SqlConnection con = new SqlConnection(connectionString);
@@ -96,6 +100,6 @@ namespace Evaluation2_Screens
             return list;
 
         }
-
-    } 
+        #endregion
+    }
 }
